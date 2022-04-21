@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://core/Server.gd" type="Script" id=1]
+[ext_resource path="res://core/track/track.tscn" type="PackedScene" id=2]
+[ext_resource path="res://core/GameLogic.gd" type="Script" id=3]
+[ext_resource path="res://art/ui/overlay_ui_action.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art/ui/overlay_ui_observation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art/ui/overlay_control.tscn" type="PackedScene" id=6]
+
+[node name="game" type="Node2D"]
+
+[node name="GameLogic" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Track" parent="." instance=ExtResource( 2 )]
+
+[node name="Car" type="Node" parent="."]
+
+[node name="Server" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Score" type="Label" parent="Labels"]
+margin_right = 95.0
+margin_bottom = 15.0
+text = "Max Score:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Distance" type="Label" parent="Labels"]
+margin_top = 15.0
+margin_right = 95.0
+margin_bottom = 30.0
+text = "Max Distance:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Steps" type="Label" parent="Labels"]
+margin_top = 30.0
+margin_right = 95.0
+margin_bottom = 45.0
+text = "Max Steps:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxScoreLabel" type="Label" parent="Labels"]
+margin_left = 100.0
+margin_right = 150.0
+margin_bottom = 15.0
+text = "9999"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxDistanceLabel" type="Label" parent="Labels"]
+margin_left = 100.0
+margin_top = 15.0
+margin_right = 150.0
+margin_bottom = 30.0
+text = "500"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxStepsLabel" type="Label" parent="Labels"]
+margin_left = 100.0
+margin_top = 30.0
+margin_right = 150.0
+margin_bottom = 45.0
+text = "123"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overlay_Control" parent="." instance=ExtResource( 6 )]
+position = Vector2( 247.67, 0 )
+
+[node name="Overlay_UI_Action" parent="." instance=ExtResource( 4 )]
+position = Vector2( 24, 315 )
+scale = Vector2( 1.00773, 0.993197 )
+
+[node name="Overlay_UI_Observation" parent="." instance=ExtResource( 5 )]
+position = Vector2( 929.931, 308.127 )
